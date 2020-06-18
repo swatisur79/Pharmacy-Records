@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy Records</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+
+<body>
+
+<br/>
+
+
+<h2 text align="center"> Welcome!</h2>
+
+<div id="click">
+    <br/>
+    <label for="username">Enter your username: </label>
+    <input id="username" type="text">
+    <button onclick="submitUsername()">Submit</button>
+</div>
+
+<script>
+    function submitUsername() {
+    enteredUsername = document.getElementById("username").value;
+  if (enteredUsername !== "") {
+       username = enteredUsername;
+        document.location.href = "navigate.html";
+   }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body {
+  background-color: #cccccc;
+  font-size:17px
+}
+
+ul {
+  list-style-type: none;
+  margin: 1;
+  padding: 2;
+  font-color:"black"
+}
+

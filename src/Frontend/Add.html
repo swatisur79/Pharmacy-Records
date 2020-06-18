@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy Records</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+<body>
+
+<br/>
+
+<h3 id="message">Add the name of the drugs using the IUPAC name</h3>
+
+<label for="id">Id: </label><input type="text" id="id"/><br/>
+<label for="name">Name: </label><input type="text" id="name"/><br/>
+<label for="qty">Quantity: </label><input type="text" id="qty"/><br/>
+<label for="exp">Expiry Date: </label><input type="text" id="exp"/><br/>
+<label for="ac">Adult/Child: </label><input type="text" id="ac"/><br/>
+<label for="rack">Rack No.: </label><input type="text" id="rack"/><br/>
+<label for="cost">Cost: </label><input type="text" id="cost"/><br/>
+<button onclick="addDrug();">Add Item</button>
+<br/><br/>
+
+<div id="add"></div>
+
+<script>
+    function addDrug() {
+    let id = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let qty= document.getElementById("qty").value;
+    let exp= document.getElementById("exp").value;
+    let ac= document.getElementById("ac").value;
+    let rack= document.getElementById("rack").value;
+    let cost= document.getElementById("cost").value;
+    socket.emit("add_drug", JSON.stringify({"id": id, "name": name, "qty":qty,"exp":exp,"ac":ac,"rack":rack,"cost":cost}))
+
+    document.getElementById("id").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("qty").value="";
+    document.getElementById("exp").value="";
+    document.getElementById("ac").value="";
+    document.getElementById("rack").value="";
+    document.getElementById("cost").value="";
+}
+</script>
+
+</body>
+</html>
